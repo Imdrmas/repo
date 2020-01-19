@@ -1,9 +1,10 @@
 package com.register.repository.server.domain.dao;
 
-import com.register.repository.server.domain.model.Property;
+import com.register.repository.server.domain.model.Clazz;
+import com.register.repository.server.domain.model.Type;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PropertyDao extends JpaRepository<Property, Long> {
+public interface ClazzDao extends JpaRepository<Clazz, Long> {
 }

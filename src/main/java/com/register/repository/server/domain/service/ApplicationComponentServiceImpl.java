@@ -1,13 +1,15 @@
 package com.register.repository.server.domain.service;
 
 import com.register.repository.server.domain.dao.ApplicationComponentDao;
+import com.register.repository.server.domain.model.Application;
 import com.register.repository.server.domain.model.ApplicationComponent;
 import com.register.repository.server.domain.model.ServiceInterface;
+import com.register.repository.server.domain.model.Type;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ApplicationComponentServiceImpl implements ApplicationComponentService {
+public class ApplicationComponentServiceImpl {
 
     @Autowired
     private final ApplicationComponentDao applicationComponentDao;
@@ -16,26 +18,4 @@ public class ApplicationComponentServiceImpl implements ApplicationComponentServ
         this.applicationComponentDao = applicationComponentDao;
     }
 
-    @Override
-    public ApplicationComponent updateApplicationComponent(ApplicationComponent newApplicationComponent,
-                                                           ApplicationComponent applicationComponentExist) {
-        if (newApplicationComponent != null && applicationComponentExist!=null) {
-          applicationComponentExist.setName(newApplicationComponent.getName());
-          applicationComponentExist.setDescription(newApplicationComponent.getDescription());
-          applicationComponentExist.setTimestamp(applicationComponentExist.getTimestamp());
-         return applicationComponentDao.save(applicationComponentExist);
-        } else {
-            return  null;
-        }
-    }
-
-    @Override
-    public ServiceInterfaceService createServiceInterfaceService(ServiceInterface serviceInterface,
-                                                                 ApplicationComponent applicationComponent) {
-        if (applicationComponent!=null) {
-            applicationComponent.addService(serviceInterface);
-            applicationComponentDao.save(applicationComponent);
-        }
-        return null;
-    }
 }

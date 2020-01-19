@@ -4,7 +4,9 @@ import com.register.repository.server.domain.model.Application;
 import com.register.repository.server.domain.model.ApplicationComponent;
 import com.register.repository.server.domain.model.Type;
 
-public interface ApplicationService {
+public interface ApplicationDomainService {
+
+    Application findApplicationById(Long idApplication);
 
     Application createApplication(Application application);
 
@@ -15,4 +17,5 @@ public interface ApplicationService {
     ApplicationComponent createApplicationComponent(ApplicationComponent applicationComponent, Application application);
 
 
+    void deleteApplication(Application application);
 }
