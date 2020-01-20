@@ -10,11 +10,13 @@ import com.register.repository.server.domain.model.ApplicationComponent;
 import com.register.repository.server.domain.service.ApplicationComponentDomainService;
 import com.register.repository.server.domain.service.ApplicationDomainService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
+@Component
 public class ApplicationComponentManagerImpl implements ApplicationComponentManager {
 
     private final ApplicationComponentDomainService applicationComponentDomainService;
